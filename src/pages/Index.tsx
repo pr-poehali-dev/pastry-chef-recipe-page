@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -82,6 +83,7 @@ const testimonials = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
   const [selectedTime, setSelectedTime] = useState('all');
@@ -259,7 +261,7 @@ export default function Index() {
                     )}
                   </div>
                   
-                  <Button className="w-full">
+                  <Button className="w-full" onClick={() => navigate(`/recipe/${recipe.id}`)}>
                     Смотреть рецепт
                     <Icon name="ArrowRight" className="ml-2" size={16} />
                   </Button>
